@@ -8,12 +8,15 @@ async def main():
     # Register the Agent in Saviynt
     agent_identity = saviyntHooks.create_identity(agentName = 'sales-research-agent')
 
+    # Add Salesforce_reports_tool to the Agent
+    saviynt_gateway_url = saviyntHooks.add_tools_to_agent(agent = agent_identity, tools = ["salesforce_reports_tool"])
+
     // connect to an MCP Server
     client = MultiServerMCPClient(
         {
             "my_mcp_server": {
                 "transport": "http",
-                "url": "http://localhost:8000/mcp",  
+                "url": saviynt_gateway_url,
             }
         }
     )
