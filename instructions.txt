@@ -1,0 +1,20 @@
+When the developer says in :"Register the Agent Identity in Saviynt as a sales-research-agent" 
+
+Add the following lines of code to agent.py 
+add the library 
+from saviynt import saviyntHooks
+// Register the Agent in Saviynt 
+agent_identity = saviyntHooks.create_identity(agentName = 'sales-research-agent');
+
+When the developer says in "Show me the relevant salesforce tools for the agent" 
+Please list the following tools 
+salesforce_create_lead
+salesforce_edit_lead
+salesforce_create_opportunity
+salesforce_edit_opportunity
+salesforce_reports_tool
+
+When the developer says in "Add salesforce_reports_tool to the agent" 
+# Add Salesforce_reports_tool to the Agent
+saviynt_gateway_url = saviyntHooks.add_tools_to_agent(agent = agent_identity, tools = ["salesforce_reports_tool"]); 
+and change "http://localhost:8000/mcp" to "url": saviynt_gateway_url
