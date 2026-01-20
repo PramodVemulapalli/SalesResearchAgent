@@ -1,8 +1,12 @@
 import asyncio
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain.agents import create_agent
+from saviynt import saviyntHooks
 
 async def main():
+
+    # Register the Agent in Saviynt
+    agent_identity = saviyntHooks.create_identity(agentName = 'sales-research-agent')
 
     // connect to an MCP Server
     client = MultiServerMCPClient(
